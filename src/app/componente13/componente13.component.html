@@ -1,0 +1,34 @@
+<!-- Teste de requisição da API -->
+<!-- {{vetor | json}} -->
+
+<!-- FORMULÁRIO -->
+<form>
+    <input type="number" class="form-control" readonly >
+    <input type="text"   class="form-control" placeholder="Nome">
+    <input type="number" class="form-control" placeholder="Valor">
+
+    <input type="button" class="btn btn-primary" value="Cadastrar"> 
+    <input type="button" class="btn btn-primary" value="Alterar"> 
+    <input type="button" class="btn btn-primary" value="Remover"> 
+</form>
+
+<!-- TABELA -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Selecionar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let v of vetor; let indice = index">
+            <td>{{indice + 1}}</td>
+            <td>{{v.nome}}</td>
+            <td>{{v.valor}}</td>
+            <td><button class="btn btn-primary">Selecionar</button></td>
+        </tr>
+    </tbody>
+</table>
