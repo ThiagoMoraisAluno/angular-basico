@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Produto } from '../modelo/Produto';
 import { ProdutoService } from '../servico/produto.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './componente14.component.html',
   styleUrl: './componente14.component.css'
 })
-export class Componente14Component {
+export class Componente14Component implements OnInit {
     //listagem
 
     //vetor para armazenar dados da API
@@ -71,6 +71,26 @@ export class Componente14Component {
 
         //Alterar o vetor
         this.vetor[indiceAlterado] = retorno;
+
+        //Limpeza do formulário
+        this.formulario.reset();
+
+        //Visibilidade dos botões
+        this.btnCadastrar = true;
+      })
+    }
+
+    //Método para remover produtos
+    remover(){
+      this.servico.remover(this.formulario.value.id).subscribe(() =>{
+
+        //Obter o indice do vetor que será removido
+        let indiceRemovido = this.vetor.findIndex(obj =>{
+          return obj.id === this.formulario.value.id;
+        })
+
+        //Remover objeto do vetor
+        this.vetor.splice(indiceRemovido, 1);
 
         //Limpeza do formulário
         this.formulario.reset();

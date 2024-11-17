@@ -12,7 +12,7 @@
     <!-- Botões -->
     <input type="button" class="btn btn-primary" value="Cadastrar" *ngIf="btnCadastrar" (click)="cadastrar()">
     <input type="button" class="btn btn-primary" value="Alterar" *ngIf="!btnCadastrar" (click)="alterar()">
-    <input type="button" class="btn btn-primary" value="Remover" *ngIf="!btnCadastrar">
+    <input type="button" class="btn btn-primary" value="Remover" *ngIf="!btnCadastrar" (click)="remover()">
 </form>
 
 <!-- Tabela -->
